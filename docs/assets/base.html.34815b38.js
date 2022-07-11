@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-a447dd7c","path":"/scss/base.html","title":"SCSS","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"sass\u57FA\u672C\u8BED\u6CD5","slug":"sass\u57FA\u672C\u8BED\u6CD5","children":[]}],"git":{},"filePathRelative":"scss/base.md"}');export{e as data};
