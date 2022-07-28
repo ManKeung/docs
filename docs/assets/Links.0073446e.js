@@ -1,0 +1,1 @@
+import{_ as s,o as _,c as a,p as c,g as o,a as t}from"./app.c2f3501f.js";const d={},n=e=>(c("data-v-1a6d7ec0"),e=e(),o(),e),p={class:"page-links"},r=n(()=>t("p",null,"\u53CB\u60C5\u94FE\u63A5",-1)),i=[r];function l(e,u){return _(),a("div",p,i)}var f=s(d,[["render",l],["__scopeId","data-v-1a6d7ec0"],["__file","Links.vue"]]);export{f as default};
