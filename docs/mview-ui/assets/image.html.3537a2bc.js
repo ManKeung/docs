@@ -1,0 +1,1 @@
+import{_ as a,o as t,c,b as e,d as o}from"./app.4567467e.js";const r={},s=e("h1",{id:"image-\u56FE\u7247",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#image-\u56FE\u7247","aria-hidden":"true"},"#"),o(" Image \u56FE\u7247")],-1),n=[s];function _(i,d){return t(),c("div",null,n)}const h=a(r,[["render",_],["__file","image.html.vue"]]);export{h as default};
