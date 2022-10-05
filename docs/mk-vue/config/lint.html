@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.51">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <link rel="icon" href="/docs/mk-vue/logo.png"><title>代码规范 | mk-vue</title><meta name="description" content="好记性不如烂笔头">
+    <link rel="modulepreload" href="/docs/mk-vue/assets/app.efc882a5.js"><link rel="modulepreload" href="/docs/mk-vue/assets/lint.html.fa0b5b30.js"><link rel="modulepreload" href="/docs/mk-vue/assets/lint.html.69292e7d.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.e27d8b06.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.ff24d597.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.2a3baaeb.js"><link rel="prefetch" href="/docs/mk-vue/assets/other.html.3f0c3337.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.7f962b2f.js"><link rel="prefetch" href="/docs/mk-vue/assets/scripts.html.651ab9e5.js"><link rel="prefetch" href="/docs/mk-vue/assets/vite.html.e7b10fd9.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.9f3ce4e1.js"><link rel="prefetch" href="/docs/mk-vue/assets/note.html.fc3bc5a8.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.33393b89.js"><link rel="prefetch" href="/docs/mk-vue/assets/reward.html.d101b6f1.js"><link rel="prefetch" href="/docs/mk-vue/assets/started.html.1d99bc43.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.0d14ac4b.js"><link rel="prefetch" href="/docs/mk-vue/assets/http.html.d543a74a.js"><link rel="prefetch" href="/docs/mk-vue/assets/clipboard.html.62a4087a.js"><link rel="prefetch" href="/docs/mk-vue/assets/debounce.html.287d6e97.js"><link rel="prefetch" href="/docs/mk-vue/assets/deepClone.html.cca7a846.js"><link rel="prefetch" href="/docs/mk-vue/assets/encryption.html.9fcc08f3.js"><link rel="prefetch" href="/docs/mk-vue/assets/hotkeys.html.9fc1ea2b.js"><link rel="prefetch" href="/docs/mk-vue/assets/mitt.html.4c8f3524.js"><link rel="prefetch" href="/docs/mk-vue/assets/xss.html.c997ddf7.js"><link rel="prefetch" href="/docs/mk-vue/assets/404.html.c3e557d0.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.d73cb277.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.6205e876.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.3d4fb677.js"><link rel="prefetch" href="/docs/mk-vue/assets/other.html.94480985.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.375d9eaf.js"><link rel="prefetch" href="/docs/mk-vue/assets/scripts.html.e7113f9c.js"><link rel="prefetch" href="/docs/mk-vue/assets/vite.html.cf6ef9bb.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.395bb35d.js"><link rel="prefetch" href="/docs/mk-vue/assets/note.html.038e1827.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.983d596e.js"><link rel="prefetch" href="/docs/mk-vue/assets/reward.html.ce9ef87a.js"><link rel="prefetch" href="/docs/mk-vue/assets/started.html.b92a236c.js"><link rel="prefetch" href="/docs/mk-vue/assets/index.html.89825c35.js"><link rel="prefetch" href="/docs/mk-vue/assets/http.html.a9faf7e3.js"><link rel="prefetch" href="/docs/mk-vue/assets/clipboard.html.967b3c50.js"><link rel="prefetch" href="/docs/mk-vue/assets/debounce.html.6d09f5af.js"><link rel="prefetch" href="/docs/mk-vue/assets/deepClone.html.5b191ad4.js"><link rel="prefetch" href="/docs/mk-vue/assets/encryption.html.28678492.js"><link rel="prefetch" href="/docs/mk-vue/assets/hotkeys.html.1fd7260a.js"><link rel="prefetch" href="/docs/mk-vue/assets/mitt.html.443c1f59.js"><link rel="prefetch" href="/docs/mk-vue/assets/xss.html.3444c35c.js"><link rel="prefetch" href="/docs/mk-vue/assets/404.html.162ba7d4.js"><link rel="prefetch" href="/docs/mk-vue/assets/CodeOpen.930c8f75.js"><link rel="prefetch" href="/docs/mk-vue/assets/CodeType.3a671db6.js"><link rel="prefetch" href="/docs/mk-vue/assets/Log.3d8235e6.js"><link rel="prefetch" href="/docs/mk-vue/assets/Tip.a1f9d003.js">
+    <link rel="stylesheet" href="/docs/mk-vue/assets/style.75cd4a2e.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container"><!--[--><header class="navbar"><div class="toggle-sidebar-button" title="切换侧边栏" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a href="/docs/mk-vue/" class=""><!----><span class="site-name can-hide">mk-vue</span></a></span><div class="navbar-items-wrapper" style=""><!--[--><!--]--><nav class="navbar-items can-hide"><!--[--><div class="navbar-item"><a href="/docs/mk-vue/guide/" class="" aria-label="指南"><!--[--><!--]--> 指南 <!--[--><!--]--></a></div><div class="navbar-item"><a href="/docs/mk-vue/config/" class="router-link-active" aria-label="配置参考"><!--[--><!--]--> 配置参考 <!--[--><!--]--></a></div><div class="navbar-item"><a href="/docs/mk-vue/function/" class="" aria-label="功能"><!--[--><!--]--> 功能 <!--[--><!--]--></a></div><div class="navbar-item"><a href="/docs/mk-vue/api/" class="" aria-label="API"><!--[--><!--]--> API <!--[--><!--]--></a></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="v1.0.0"><span class="title">v1.0.0</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="v1.0.0"><span class="title">v1.0.0</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/docs/mk-vue/changlog/" class="" aria-label="更新日志"><!--[--><!--]--> 更新日志 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><a href="/docs/mk-vue/reward/" class="" aria-label="打赏"><!--[--><!--]--> 打赏 <!--[--><!--]--></a></div><div class="navbar-item"><a class="external-link" href="https://gitee.com/mankeung/mk-vue" rel="noopener noreferrer" target="_blank" aria-label="Gitee"><!--[--><!--]--> Gitee <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!--[--><!--]--></a></div><div class="navbar-item"><a class="external-link" href="https://github.com/mankeung/mk-vue" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-color-mode-button" title="toggle color mode"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><form class="search-box" role="search"><input type="search" placeholder="搜索文档关键字" autocomplete="off" spellcheck="false" value><!----></form></div></header><!--]--><div class="sidebar-mask"></div><!--[--><aside class="sidebar"><nav class="navbar-items"><!--[--><div class="navbar-item"><a href="/docs/mk-vue/guide/" class="" aria-label="指南"><!--[--><!--]--> 指南 <!--[--><!--]--></a></div><div class="navbar-item"><a href="/docs/mk-vue/config/" class="router-link-active" aria-label="配置参考"><!--[--><!--]--> 配置参考 <!--[--><!--]--></a></div><div class="navbar-item"><a href="/docs/mk-vue/function/" class="" aria-label="功能"><!--[--><!--]--> 功能 <!--[--><!--]--></a></div><div class="navbar-item"><a href="/docs/mk-vue/api/" class="" aria-label="API"><!--[--><!--]--> API <!--[--><!--]--></a></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="v1.0.0"><span class="title">v1.0.0</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="v1.0.0"><span class="title">v1.0.0</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/docs/mk-vue/changlog/" class="" aria-label="更新日志"><!--[--><!--]--> 更新日志 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><a href="/docs/mk-vue/reward/" class="" aria-label="打赏"><!--[--><!--]--> 打赏 <!--[--><!--]--></a></div><div class="navbar-item"><a class="external-link" href="https://gitee.com/mankeung/mk-vue" rel="noopener noreferrer" target="_blank" aria-label="Gitee"><!--[--><!--]--> Gitee <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!--[--><!--]--></a></div><div class="navbar-item"><a class="external-link" href="https://github.com/mankeung/mk-vue" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-items"><!--[--><li><p tabindex="0" class="sidebar-item sidebar-heading active">配置参考 <!----></p><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/docs/mk-vue/config/lint.html" class="router-link-active router-link-exact-active router-link-active sidebar-item active" aria-label="代码规范"><!--[--><!--]--> 代码规范 <!--[--><!--]--></a><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/docs/mk-vue/config/lint.html#editorconfig" class="router-link-active router-link-exact-active sidebar-item" aria-label="EditorConfig"><!--[--><!--]--> EditorConfig <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/docs/mk-vue/config/lint.html#eslint" class="router-link-active router-link-exact-active sidebar-item" aria-label="eslint"><!--[--><!--]--> eslint <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/docs/mk-vue/config/lint.html#stylelint" class="router-link-active router-link-exact-active sidebar-item" aria-label="stylelint"><!--[--><!--]--> stylelint <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/docs/mk-vue/config/lint.html#prettier" class="router-link-active router-link-exact-active sidebar-item" aria-label="prettier"><!--[--><!--]--> prettier <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/docs/mk-vue/config/lint.html#husky" class="router-link-active router-link-exact-active sidebar-item" aria-label="husky"><!--[--><!--]--> husky <!--[--><!--]--></a><!----></li><!--]--></ul></li><li><a href="/docs/mk-vue/config/scripts.html" class="sidebar-item" aria-label="scripts"><!--[--><!--]--> scripts <!--[--><!--]--></a><!----></li><li><a href="/docs/mk-vue/config/vite.html" class="sidebar-item" aria-label="vite"><!--[--><!--]--> vite <!--[--><!--]--></a><!----></li><li><a href="/docs/mk-vue/config/other.html" class="sidebar-item" aria-label="其他"><!--[--><!--]--> 其他 <!--[--><!--]--></a><!----></li><!--]--></ul></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><!--]--><div><h1 id="代码规范" tabindex="-1"><a class="header-anchor" href="#代码规范" aria-hidden="true">#</a> 代码规范</h1><div class="custom-container tip"><p class="custom-container-title">注意</p><p>这里不做详细配置说明，你可以查看之前文章<a href="https://mankeung.github.io/docs/mk-data/tools_article/23.html" target="_blank" rel="noopener noreferrer">前端代码工作流<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a>、<a href="https://mankeung.github.io/docs/mk-data/tools_article/23.html" target="_blank" rel="noopener noreferrer">从 0 到 1 搭建一个企业级前端开发规范<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a>了解。</p></div><h2 id="editorconfig" tabindex="-1"><a class="header-anchor" href="#editorconfig" aria-hidden="true">#</a> EditorConfig</h2><h3 id="editorconfig-1" tabindex="-1"><a class="header-anchor" href="#editorconfig-1" aria-hidden="true">#</a> .editorconfig</h3><details class="custom-container details"><summary>点击查看详情</summary><div class="language-ini ext-ini line-numbers-mode"><pre class="language-ini"><code><span class="token key attr-name">root</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
+
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">*</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">charset</span> <span class="token punctuation">=</span> <span class="token value attr-value">utf-8</span>
+<span class="token key attr-name">indent_style</span> <span class="token punctuation">=</span> <span class="token value attr-value">space</span>
+<span class="token key attr-name">indent_size</span> <span class="token punctuation">=</span> <span class="token value attr-value">4</span>
+<span class="token key attr-name">end_of_line</span> <span class="token punctuation">=</span> <span class="token value attr-value">lf</span>
+<span class="token key attr-name">insert_final_newline</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
+<span class="token key attr-name">trim_trailing_whitespace</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
+
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">*.md</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">trim_trailing_whitespace</span> <span class="token punctuation">=</span> <span class="token value attr-value">false</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details><h3 id="vscode-settings-json" tabindex="-1"><a class="header-anchor" href="#vscode-settings-json" aria-hidden="true">#</a> .vscode/settings.json</h3><div class="language-json ext-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;editor.tabSize&quot;</span><span class="token operator">:</span> <span class="token number">4</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="highlight-lines"><br><div class="highlight-line"> </div><br></div><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="eslint" tabindex="-1"><a class="header-anchor" href="#eslint" aria-hidden="true">#</a> eslint</h2><h3 id="安装" tabindex="-1"><a class="header-anchor" href="#安装" aria-hidden="true">#</a> 安装</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">pnpm</span> <span class="token function">add</span> eslint eslint-config-standard eslint-plugin-vue <span class="token parameter variable">-D</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="eslintrc-js" tabindex="-1"><a class="header-anchor" href="#eslintrc-js" aria-hidden="true">#</a> .eslintrc.js</h3><details class="custom-container details"><summary>点击查看详情</summary><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">root</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">env</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">browser</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">node</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">es6</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">commonjs</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">amd</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">settings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">&#39;import/resolver&#39;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">alias</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token literal-property property">map</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">[</span><span class="token string">&#39;@&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;./src&#39;</span><span class="token punctuation">]</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">extensions</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;.ts&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;.js&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;.jsx&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;.json&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;.vue&#39;</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">globals</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 你的全局变量（设置为 false 表示它不允许被重新赋值）</span>
+        <span class="token comment">//</span>
+        <span class="token comment">// myGlobal: false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">parser</span><span class="token operator">:</span> <span class="token string">&#39;vue-eslint-parser&#39;</span><span class="token punctuation">,</span>
+    <span class="token comment">// ts eslint 配置</span>
+    <span class="token literal-property property">parserOptions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">parser</span><span class="token operator">:</span> <span class="token string">&#39;@typescript-eslint/parser&#39;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">ecmaVersion</span><span class="token operator">:</span> <span class="token number">2020</span><span class="token punctuation">,</span> <span class="token comment">// Allows for the parsing of modern ECMAScript features</span>
+        <span class="token literal-property property">sourceType</span><span class="token operator">:</span> <span class="token string">&#39;module&#39;</span><span class="token punctuation">,</span> <span class="token comment">// Allows for the use of imports</span>
+        <span class="token literal-property property">ecmaFeatures</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">jsx</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;@typescript-eslint&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;plugin:vue/vue3-recommended&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;plugin:@typescript-eslint/recommended&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// ! 解决eslint报使用v-html警告</span>
+        <span class="token string-property property">&#39;vue/no-v-html&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/html-self-closing&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/html-indent&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/html-closing-bracket-newline&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/max-attributes-per-line&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-debugger&#39;</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">&#39;production&#39;</span> <span class="token operator">?</span> <span class="token string">&#39;warn&#39;</span> <span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 禁用 debugger</span>
+        <span class="token string-property property">&#39;no-console&#39;</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">&#39;production&#39;</span> <span class="token operator">?</span> <span class="token string">&#39;warn&#39;</span> <span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 禁用 console</span>
+        <span class="token string-property property">&#39;@typescript-eslint/ban-ts-ignore&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/explicit-function-return-type&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/no-explicit-any&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/no-var-requires&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/no-empty-function&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/custom-event-name-casing&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/multi-word-component-names&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-use-before-define&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;prefer-rest-params&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/no-this-alias&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/no-use-before-define&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/ban-ts-comment&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/ban-types&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/no-non-null-assertion&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/explicit-module-boundary-types&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;@typescript-eslint/no-unused-vars&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&#39;error&#39;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token literal-property property">argsIgnorePattern</span><span class="token operator">:</span> <span class="token string">&#39;^h$&#39;</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">varsIgnorePattern</span><span class="token operator">:</span> <span class="token string">&#39;^h$&#39;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-unused-vars&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&#39;error&#39;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token literal-property property">argsIgnorePattern</span><span class="token operator">:</span> <span class="token string">&#39;^h$&#39;</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">varsIgnorePattern</span><span class="token operator">:</span> <span class="token string">&#39;^h$&#39;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;space-before-function-paren&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">quotes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;error&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;single&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;comma-dangle&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;error&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;never&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/component-tags-order&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&#39;error&#39;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token literal-property property">order</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;style&#39;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&#39;template&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;script&#39;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;max-len&#39;</span><span class="token operator">:</span> <span class="token string">&#39;off&#39;</span><span class="token punctuation">,</span>
+        <span class="token comment">// 统一豁免规则，原因：直接修改可能对现有功能产生影响</span>
+        <span class="token string-property property">&#39;eqeqeq&#39;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token comment">//  &#39;vue/no-v-html&#39;: 1,</span>
+        <span class="token comment">// 其中代码本身有问题的规则错误有</span>
+        <span class="token string-property property">&#39;no-undef&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;import/no-duplicates&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// 可能引起格式化问题但建议手动修改代码的有</span>
+        <span class="token string-property property">&#39;no-plusplus&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-eval&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-prototype-builtins&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-multi-assign&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-unused-vars&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-useless-escape&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;camelcase&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/no-unused-components&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/return-in-computed-property&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-param-reassign&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;prefer-const&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;prefer-destructuring&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-underscore-dangle&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-restricted-syntax&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-nested-ternary&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;radix&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/no-side-effects-in-computed-properties&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;vue/order-in-components&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;function-paren-newline&#39;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details><h3 id="eslintignore" tabindex="-1"><a class="header-anchor" href="#eslintignore" aria-hidden="true">#</a> .eslintignore</h3><details class="custom-container details"><summary>点击查看详情</summary><div class="language-ini ext-ini line-numbers-mode"><pre class="language-ini"><code><span class="token comment"># 根据自己的实际需求进行添加</span>
+
+<span class="token comment"># npm</span>
+
+node_modules
+
+<span class="token comment"># folder</span>
+
+dist
+public
+templates
+docs
+www
+scripts
+
+<span class="token comment"># file</span>
+
+postcss.config.js
+babel.config.js
+.eslintrc.js
+plopfile.js
+.stylelintrc.js
+.prettierrc.js
+*.json
+*.html
+*.d.ts
+
+<span class="token comment"># vscode</span>
+
+.vscode
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details><h3 id="npm命令配置" tabindex="-1"><a class="header-anchor" href="#npm命令配置" aria-hidden="true">#</a> npm命令配置</h3><div class="language-json ext-json line-numbers-mode"><pre class="language-json"><code>        <span class="token property">&quot;lint:eslint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint --fix \&quot;src/**/*.{vue,ts,js}\&quot;&quot;</span><span class="token punctuation">,</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="stylelint" tabindex="-1"><a class="header-anchor" href="#stylelint" aria-hidden="true">#</a> stylelint</h2><h3 id="安装-1" tabindex="-1"><a class="header-anchor" href="#安装-1" aria-hidden="true">#</a> 安装</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">pnpm</span> <span class="token function">add</span> stylelint stylelint-config-html stylelint-config-prettier stylelint-config-standard stylelint-order stylelint-scss postcss-html postcss-scss <span class="token parameter variable">-D</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="stylelintrc-js" tabindex="-1"><a class="header-anchor" href="#stylelintrc-js" aria-hidden="true">#</a> .stylelintrc.js</h3><details class="custom-container details"><summary>点击查看详情</summary><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">root</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;stylelint-order&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;stylelint-scss&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">customSyntax</span><span class="token operator">:</span> <span class="token string">&#39;postcss-html&#39;</span><span class="token punctuation">,</span>
+    <span class="token keyword">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;stylelint-config-standard&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;stylelint-config-prettier&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;stylelint-config-html&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">indentation</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;media-feature-name-no-unknown&#39;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;selector-class-pattern&#39;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;selector-pseudo-class-no-unknown&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+
+                <span class="token literal-property property">ignorePseudoClasses</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;deep&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;global&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;selector-pseudo-element-no-unknown&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+
+                <span class="token literal-property property">ignorePseudoElements</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;v-deep&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;v-global&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;v-slotted&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;at-rule-no-unknown&#39;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token comment">// &#39;at-rule-no-unknown&#39;: [</span>
+        <span class="token comment">//     true,</span>
+        <span class="token comment">//     {</span>
+
+        <span class="token comment">//         ignoreAtRules: [</span>
+        <span class="token comment">//             &#39;tailwind&#39;,</span>
+        <span class="token comment">//             &#39;apply&#39;,</span>
+        <span class="token comment">//             &#39;variants&#39;,</span>
+        <span class="token comment">//             &#39;responsive&#39;,</span>
+        <span class="token comment">//             &#39;screen&#39;,</span>
+        <span class="token comment">//             &#39;function&#39;,</span>
+        <span class="token comment">//             &#39;if&#39;,</span>
+        <span class="token comment">//             &#39;each&#39;,</span>
+        <span class="token comment">//             &#39;include&#39;,</span>
+        <span class="token comment">//             &#39;mixin&#39;,</span>
+        <span class="token comment">//             &#39;@at-root&#39;</span>
+        <span class="token comment">//         ],</span>
+        <span class="token comment">//     },</span>
+        <span class="token comment">// ],</span>
+        <span class="token string-property property">&#39;no-empty-source&#39;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;named-grid-areas-no-invalid&#39;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;unicode-bom&#39;</span><span class="token operator">:</span> <span class="token string">&#39;never&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;no-descending-specificity&#39;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;font-family-no-missing-generic-family-keyword&#39;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;declaration-colon-space-after&#39;</span><span class="token operator">:</span> <span class="token string">&#39;always-single-line&#39;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;declaration-colon-space-before&#39;</span><span class="token operator">:</span> <span class="token string">&#39;never&#39;</span><span class="token punctuation">,</span>
+        <span class="token comment">// &#39;declaration-block-trailing-semicolon&#39;: &#39;always&#39;,</span>
+        <span class="token string-property property">&#39;rule-empty-line-before&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&#39;always&#39;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+
+                <span class="token literal-property property">ignore</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;after-comment&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;first-nested&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;unit-no-unknown&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">ignoreUnits</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;rpx&#39;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;keyframes-name-pattern&#39;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;order/order&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">[</span>
+                <span class="token string">&#39;dollar-variables&#39;</span><span class="token punctuation">,</span>
+                <span class="token string">&#39;custom-properties&#39;</span><span class="token punctuation">,</span>
+                <span class="token string">&#39;at-rules&#39;</span><span class="token punctuation">,</span>
+                <span class="token string">&#39;declarations&#39;</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+
+                    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&#39;at-rule&#39;</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&#39;supports&#39;</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+
+                    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&#39;at-rule&#39;</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&#39;media&#39;</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token string">&#39;rules&#39;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token literal-property property">severity</span><span class="token operator">:</span> <span class="token string">&#39;warning&#39;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;order/properties-order&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&#39;position&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;top&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;right&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;bottom&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;left&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;z-index&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;display&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;float&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;width&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;height&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;max-width&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;max-height&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;min-width&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;min-height&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;padding&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;padding-top&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;padding-right&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;padding-bottom&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;padding-left&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-top&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-right&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-bottom&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-left&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-collapse&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-top-collapse&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-right-collapse&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-bottom-collapse&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;margin-left-collapse&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;overflow&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;overflow-x&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;overflow-y&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;clip&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;clear&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;font&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;font-family&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;font-size&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;font-smoothing&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;osx-font-smoothing&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;font-style&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;font-weight&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;hyphens&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;src&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;line-height&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;letter-spacing&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;word-spacing&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;color&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;text-align&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;text-decoration&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;text-indent&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;text-overflow&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;text-rendering&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;text-size-adjust&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;text-shadow&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;text-transform&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;word-break&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;word-wrap&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;white-space&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;vertical-align&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;list-style&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;list-style-type&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;list-style-position&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;list-style-image&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;pointer-events&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;cursor&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;background&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;background-attachment&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;background-color&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;background-image&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;background-position&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;background-repeat&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;background-size&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-collapse&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-top&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-right&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-bottom&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-left&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-color&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-image&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-top-color&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-right-color&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-bottom-color&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-left-color&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-spacing&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-style&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-top-style&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-right-style&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-bottom-style&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-left-style&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-width&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-top-width&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-right-width&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-bottom-width&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-left-width&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-radius&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-top-right-radius&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-bottom-right-radius&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-bottom-left-radius&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-top-left-radius&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-radius-topright&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-radius-bottomright&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-radius-bottomleft&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;border-radius-topleft&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;content&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;quotes&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;outline&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;outline-offset&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;opacity&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;filter&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;visibility&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;size&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;zoom&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;transform&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;box-align&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;box-flex&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;box-orient&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;box-pack&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;box-shadow&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;box-sizing&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;table-layout&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;animation&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;animation-delay&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;animation-duration&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;animation-iteration-count&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;animation-name&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;animation-play-state&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;animation-timing-function&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;animation-fill-mode&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;transition&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;transition-delay&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;transition-duration&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;transition-property&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;transition-timing-function&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;background-clip&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;backface-visibility&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;resize&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;appearance&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;user-select&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;interpolation-mode&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;direction&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;marks&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;page&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;set-link-source&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;unicode-bidi&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;speak&#39;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">ignoreFiles</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;**/*.js&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;**/*.jsx&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;**/*.tsx&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;**/*.ts&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details><h3 id="stylelintignore" tabindex="-1"><a class="header-anchor" href="#stylelintignore" aria-hidden="true">#</a> .stylelintignore</h3><details class="custom-container details"><summary>点击查看详情</summary><div class="language-ini ext-ini line-numbers-mode"><pre class="language-ini"><code><span class="token comment"># npm</span>
+
+node_modules
+
+<span class="token comment"># folder</span>
+
+dist
+public
+templates
+
+<span class="token comment"># file</span>
+
+postcss.config.js
+babel.config.js
+.eslintrc.js
+.prettierrc.js
+plopfile.js
+.stylelintrc.js
+*.json
+*.html
+normalize.scss
+*.d.ts
+
+<span class="token comment"># vscode</span>
+
+.vscode
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details><h3 id="npm命令配置-1" tabindex="-1"><a class="header-anchor" href="#npm命令配置-1" aria-hidden="true">#</a> npm命令配置</h3><div class="language-json ext-json line-numbers-mode"><pre class="language-json"><code>        <span class="token property">&quot;lint:prettier&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prettier --write  \&quot;src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\&quot;&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;lint:style&quot;</span><span class="token operator">:</span> <span class="token string">&quot;stylelint --fix \&quot;src/**/*.{scss,less,vue,css}\&quot; --cache --cache-location node_modules/.cache/stylelint/&quot;</span><span class="token punctuation">,</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="prettier" tabindex="-1"><a class="header-anchor" href="#prettier" aria-hidden="true">#</a> prettier</h2><h3 id="安装-2" tabindex="-1"><a class="header-anchor" href="#安装-2" aria-hidden="true">#</a> 安装</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">pnpm</span> <span class="token function">add</span> prettier <span class="token parameter variable">--dev</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="prettierrc-js" tabindex="-1"><a class="header-anchor" href="#prettierrc-js" aria-hidden="true">#</a> .prettierrc.js</h3><details class="custom-container details"><summary>点击查看详情</summary><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">printWidth</span><span class="token operator">:</span> <span class="token number">180</span><span class="token punctuation">,</span> <span class="token comment">//一行的字符数，如果超过会进行换行，默认为80</span>
+    <span class="token literal-property property">tabWidth</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token comment">//一个tab代表几个空格数，默认为80</span>
+    <span class="token literal-property property">useTabs</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//是否使用tab进行缩进，默认为false，表示用空格进行缩减</span>
+    <span class="token literal-property property">singleQuote</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//字符串是否使用单引号，默认为false，使用双引号</span>
+    <span class="token literal-property property">semi</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">//行位是否使用分号，默认为true</span>
+    <span class="token literal-property property">vueIndentScriptAndStyle</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">trailingComma</span><span class="token operator">:</span> <span class="token string">&#39;none&#39;</span><span class="token punctuation">,</span> <span class="token comment">//是否使用尾逗号，有三个可选值&quot;&lt;none|es5|all&gt;&quot;</span>
+    <span class="token literal-property property">bracketSpacing</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//对象大括号直接是否有空格，默认为true，效果：{ foo: bar }</span>
+    <span class="token literal-property property">jsxSingleQuote</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// jsx语法中使用单引号</span>
+    <span class="token literal-property property">htmlWhitespaceSensitivity</span><span class="token operator">:</span> <span class="token string">&#39;strict&#39;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">endOfLine</span><span class="token operator">:</span> <span class="token string">&#39;auto&#39;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details><h3 id="npm命令配置-2" tabindex="-1"><a class="header-anchor" href="#npm命令配置-2" aria-hidden="true">#</a> npm命令配置</h3><div class="language-json ext-json line-numbers-mode"><pre class="language-json"><code>        <span class="token property">&quot;lint:style&quot;</span><span class="token operator">:</span> <span class="token string">&quot;stylelint --fix \&quot;src/**/*.{scss,less,vue,css}\&quot; --cache --cache-location node_modules/.cache/stylelint/&quot;</span><span class="token punctuation">,</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="husky" tabindex="-1"><a class="header-anchor" href="#husky" aria-hidden="true">#</a> husky</h2><h3 id="安装-3" tabindex="-1"><a class="header-anchor" href="#安装-3" aria-hidden="true">#</a> 安装</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">pnpm</span> <span class="token function">add</span> husky @commitlint/cli @commitlint/config-conventional
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="commitlint-config-js" tabindex="-1"><a class="header-anchor" href="#commitlint-config-js" aria-hidden="true">#</a> commitlint.config.js</h3><details class="custom-container details"><summary>点击查看详情</summary><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;@commitlint/config-conventional&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">&#39;type-enum&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;always&#39;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span>
+                <span class="token string">&#39;feat&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 新特性</span>
+                <span class="token string">&#39;improvement&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 加强现有特性</span>
+                <span class="token string">&#39;fix&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 修补bug</span>
+                <span class="token string">&#39;refactor&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 重构</span>
+                <span class="token string">&#39;docs&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 文档</span>
+                <span class="token string">&#39;test&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 单元测试</span>
+                <span class="token string">&#39;config&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 配置文件</span>
+                <span class="token string">&#39;style&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 格式需改</span>
+                <span class="token string">&#39;perf&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 性能提升</span>
+                <span class="token string">&#39;ci&#39;</span><span class="token punctuation">,</span> <span class="token comment">// ci 主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交</span>
+                <span class="token string">&#39;revert&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 版本回退</span>
+                <span class="token string">&#39;chore&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 其他修改</span>
+                <span class="token string">&#39;scope&#39;</span> <span class="token comment">// commit 影响的范围（选填）, 比如: route, component, utils, build</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;type-empty&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&#39;never&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// type不能为空</span>
+        <span class="token string-property property">&#39;type-case&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&#39;always&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;lower-case&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// type不限制大小写</span>
+        <span class="token string-property property">&#39;subject-empty&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&#39;never&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// subject（简短得描述）不能为空</span>
+        <span class="token string-property property">&#39;subject-max-length&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&#39;always&#39;</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// subject最大长度，超出只会警告，不阻止提交</span>
+        <span class="token string-property property">&#39;body-leading-blank&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&#39;always&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;footer-leading-blank&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&#39;always&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&#39;header-max-length&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&#39;always&#39;</span><span class="token punctuation">,</span> <span class="token number">72</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details><h3 id="scripts-prepare-js" tabindex="-1"><a class="header-anchor" href="#scripts-prepare-js" aria-hidden="true">#</a> scripts/prepare.js</h3><details class="custom-container details"><summary>点击查看详情</summary><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">/*
+ * @Description: 项目初始化
+ * @Author: Mankeung
+ * @Date: 2022-09-25 13:48:49
+ * @LastEditors: Mankeung
+ * @LastEditTime: 2022-10-02 21:45:17
+ */</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> prompt <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;enquirer&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> chalk <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;chalk&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> funExec <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;./utils&#39;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&#39;pnpm&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;yarn&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;npm&#39;</span><span class="token punctuation">]</span>
+    <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token keyword">null</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        name <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">funExec</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> --version</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            name <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token keyword">break</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 没有包管理工具</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>name<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&#39;请安装包管理工具&#39;</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> git <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">funExec</span><span class="token punctuation">(</span><span class="token string">&#39;git init&#39;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 没有git</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>git<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&#39;请你使用git办理管理工具&#39;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 处理husky</span>
+    <span class="token keyword">const</span> husky <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">funExec</span><span class="token punctuation">(</span><span class="token string">&#39;npx husky install&#39;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 命令失败</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>husky<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&#39;npx husky install error&#39;</span><span class="token punctuation">)</span>
+
+    console<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">cyan</span><span class="token punctuation">(</span><span class="token string">&#39;项目初始化 ...&#39;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> answer <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">prompt</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&#39;confirm&#39;</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&#39;q1&#39;</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&#39;是否需要lint&#39;</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">initial</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&#39;confirm&#39;</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&#39;q2&#39;</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&#39;手否需要commitlint&#39;</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">initial</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&#39;出错了&#39;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>answer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&#39;出错了&#39;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">let</span> npm <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> run precommit</span><span class="token template-punctuation string">`</span></span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>answer<span class="token punctuation">.</span>q1<span class="token punctuation">)</span> npm <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&amp;&amp; </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> run lint</span><span class="token template-punctuation string">`</span></span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>npm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> d <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">funExec</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">npx husky add .husky/pre-commit &quot;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>npm<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>d<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">cyan</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>answer<span class="token punctuation">.</span>q2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> d <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">funExec</span><span class="token punctuation">(</span><span class="token string">&#39;npx husky add .husky/commit-msg &quot;npx --no-install commitlint --edit &quot;$1&quot;&quot;&#39;</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>d<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">cyan</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">cyan</span><span class="token punctuation">(</span><span class="token string">&#39;项目初始化完成&#39;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details><h3 id="npm命令配置-3" tabindex="-1"><a class="header-anchor" href="#npm命令配置-3" aria-hidden="true">#</a> npm命令配置</h3><div class="language-json ext-json line-numbers-mode"><pre class="language-json"><code>        <span class="token property">&quot;precommit&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node ./scripts/precommit.js&quot;</span><span class="token punctuation">,</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="page-meta"><div class="meta-item edit-link"><a class="external-link meta-item-label" href="https://github.com/mankeung/mk-vue/edit/master/docs/config/lint.md" rel="noopener noreferrer" target="_blank" aria-label="发现了错误或者想要为文档做贡献？编辑"><!--[--><!--]--> 发现了错误或者想要为文档做贡献？编辑 <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!--[--><!--]--></a></div><div class="meta-item last-updated"><span class="meta-item-label">最近更新时间: </span><!----></div><div class="meta-item contributors"><span class="meta-item-label">贡献者: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: mankueng1011@gmail.com">mankueng</span><!----><!--]--><!--]--></span></div></footer><nav class="page-nav"><p class="inner"><!----><span class="next"><a href="/docs/mk-vue/config/scripts.html" class="" aria-label="scripts"><!--[--><!--]--> scripts <!--[--><!--]--></a></span></p></nav><!--[--><!--]--></main><!--]--></div><!----><!--]--></div>
+    <script type="module" src="/docs/mk-vue/assets/app.efc882a5.js" defer></script>
+  </body>
+</html>
