@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-2de306f6","path":"/api/tools/clipboard.html","title":"\u590D\u5236\u7C98\u8D34","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1664980169000,"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":1}]},"filePathRelative":"api/tools/clipboard.md"}');export{t as data};
