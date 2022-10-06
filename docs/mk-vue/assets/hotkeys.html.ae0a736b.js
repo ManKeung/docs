@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-ebc2bc8c","path":"/api/tools/hotkeys.html","title":"\u6309\u952E\u76D1\u542C","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1665026898000,"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":1}]},"filePathRelative":"api/tools/hotkeys.md"}');export{t as data};

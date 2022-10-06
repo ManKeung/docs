@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-fa60e7fa","path":"/api/tools/xss.html","title":"\u9632\u653B\u51FB","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1665071104000,"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":1}]},"filePathRelative":"api/tools/xss.md"}');export{t as data};

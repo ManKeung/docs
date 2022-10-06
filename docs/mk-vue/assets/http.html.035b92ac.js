@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-1a9e5dd4","path":"/api/nextwork/http.html","title":"Http\u8BF7\u6C42","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1665026898000,"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":1}]},"filePathRelative":"api/nextwork/http.md"}');export{t as data};
