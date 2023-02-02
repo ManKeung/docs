@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-8e7b524c","path":"/site/opendoc.html","title":"\u5F00\u653E\u5E73\u53F0\u6587\u6863","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1660283016000,"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":2}]},"filePathRelative":"site/opendoc.md"}');export{e as data};
