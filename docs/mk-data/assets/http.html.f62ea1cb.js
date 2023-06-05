@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-44c79d5e","path":"/python/high/http.html","title":"http\u534F\u8BAE","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1676345150000,"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":1}]},"filePathRelative":"python/high/http.md"}');export{t as data};

@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-2ccc6c0a","path":"/db/redis/install.html","title":"\u5B89\u88C5","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":1}]},"filePathRelative":"db/redis/install.md"}');export{t as data};

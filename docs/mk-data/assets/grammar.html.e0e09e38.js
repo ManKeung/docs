@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-bdeec4d4","path":"/python/base/grammar.html","title":"\u8BED\u6CD5\u8FDB\u9636","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1676345150000,"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":1}]},"filePathRelative":"python/base/grammar.md"}');export{e as data};
