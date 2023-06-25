@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-167cd47a","path":"/other_article/42.html","title":"autofit.js","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"contributors":[{"name":"mankueng","email":"mankueng1011@gmail.com","commits":1}]},"filePathRelative":"other_article/42.md"}');export{t as data};
